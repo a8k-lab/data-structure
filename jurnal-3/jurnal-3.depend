@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1729967707 source:c:\users\a8k\documents\wdev\jurnal-3\main.cpp
+	<iostream>
+	"Province.h"
+
+1729968301 c:\users\a8k\documents\wdev\jurnal-3\province.h
+	<iostream>
+	<array>
+
+1729968182 source:c:\users\a8k\documents\wdev\jurnal-3\province.cpp
+	"Province.h"
+
