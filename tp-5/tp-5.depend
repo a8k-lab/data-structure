@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1730852653 source:c:\users\a8k\documents\wdev\tp-5\sll.cpp
+	"SLL.h"
+
+1730851534 c:\users\a8k\documents\wdev\tp-5\sll.h
+	<iostream>
+
+1730853192 source:c:\users\a8k\documents\wdev\tp-5\main.cpp
+	<iostream>
+	"menu.h"
+
+1730853251 c:\users\a8k\documents\wdev\tp-5\menu.h
+	<iostream>
+

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1730824562 source:c:\users\a8k\documents\wdev\jurnal-4\main.cpp
+	<iostream>
+	"SLL.h"
+
+1730822808 c:\users\a8k\documents\wdev\jurnal-4\sll.h
+	<iostream>
+
+1730824396 source:c:\users\a8k\documents\wdev\jurnal-4\sll.cpp
+	"SLL.h"
+
