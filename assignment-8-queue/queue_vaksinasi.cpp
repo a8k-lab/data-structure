@@ -1,18 +1,15 @@
 #include "queue_vaksinasi.h"
 
-void createQueue(Queue &Q)
-{
-    head(Q) = nullptr;
-    Q.tail = nullptr;
+void createQueue(Queue &Q) {
+    head(Q) = nil;
+    Q.tail = nil;
 }
 
-bool isEmpty(Queue Q)
-{
-    return head(Q) == nullptr;
+bool isEmpty(Queue Q) {
+    return head(Q) == nil;
 }
 
-ElemQ *createElemQueue(string nama, int usia, string pekerjaan, int nomor_antrean)
-{
+ElemQ *createElemQueue(string nama, int usia, string pekerjaan, int nomor_antrean) {
     ElemQ *P = new ElemQ;
     info(P).nama = nama;
     info(P).usia = usia;
@@ -24,79 +21,57 @@ ElemQ *createElemQueue(string nama, int usia, string pekerjaan, int nomor_antrea
     return P;
 }
 
-void enqueue(Queue &Q, ElemQ *P)
-{
-    if (isEmpty(Q))
-    {
+void enqueue(Queue &Q, ElemQ *P) {
+    if (isEmpty(Q)) {
         head(Q) = P;
         tail(Q) = P;
-    }
-    else if (info(P).prioritas)
-    {
-        if (!info(head(Q)).prioritas)
-        {
+    } else if (info(P).prioritas) {
+        if (!info(head(Q)).prioritas) {
             next(P) = head(Q);
             head(Q) = P;
-        }
-        else
-        {
+        } else {
             ElemQ *temp = head(Q);
-            while (next(temp) != nil &&
-                info(next(temp)).prioritas)
-            {
+            while (next(temp) != nil && info(next(temp)).prioritas) {
                 temp = next(temp);
             }
             next(P) = next(temp);
             next(temp) = P;
-            if (next(P) == nil)
-            {
+            if (next(P) == nil) {
                 tail(Q) = P;
             }
         }
-    }
-    else
-    {
+    } else {
         next(tail(Q)) = P;
         tail(Q) = P;
     }
 }
 
-void dequeue(Queue &Q, ElemQ *&P)
-{
-    if (isEmpty(Q))
-    {
+void dequeue(Queue &Q, ElemQ *&P) {
+    if (isEmpty(Q)) {
         P = nil;
-        cout << "Semua warga telah terlayani."
-            << endl;
-    }
-    else
-    {
+        cout << "Semua warga telah terlayani." << endl;
+    } else {
         P = head(Q);
         head(Q) = next(head(Q));
-        if (head(Q) == nil)
-        {
+        if (head(Q) == nil) {
             tail(Q) = nil;
         }
         next(P) = nil;
     }
 }
 
-ElemQ *front(Queue Q)
-{
+ElemQ *front(Queue Q) {
     return head(Q);
 }
 
-ElemQ *back(Queue Q)
-{
+ElemQ *back(Queue Q) {
     return tail(Q);
 }
 
-int size(Queue Q)
-{
+int size(Queue Q) {
     int count = 0;
     ElemQ *temp = head(Q);
-    while (temp != nullptr)
-    {
+    while (temp != nil) {
         count++;
         temp = temp->next;
     }
@@ -105,18 +80,13 @@ int size(Queue Q)
 
 // Non-Primitive
 
-void printInfo(Queue Q)
-{
-    if (isEmpty(Q))
-    {
+void printInfo(Queue Q) {
+    if (isEmpty(Q)) {
         cout << "Antrean kosong." << endl;
-    }
-    else
-    {
+    } else {
         ElemQ *P = head(Q);
         cout << "Daftar Antrean:" << endl;
-        while (P != nullptr)
-        {
+        while (P != nil) {
             cout << "Nama: " << P->info.nama << endl
                 << "Usia: " << P->info.usia << endl
                 << "Pekerjaan: " << P->info.pekerjaan << endl
@@ -128,11 +98,9 @@ void printInfo(Queue Q)
     }
 }
 
-void serveQueue(Queue &Q)
-{
+void serveQueue(Queue &Q) {
     int count = 0;
-    while (!isEmpty(Q) && count < 100)
-    {
+    while (!isEmpty(Q) && count < 100) {
         ElemQ *P;
         dequeue(Q, P);
 
@@ -144,30 +112,25 @@ void serveQueue(Queue &Q)
         cout << "Vaksinasi berhasil." << endl;
         cout << "----------------------------" << endl;
 
-        delete P; // Menghapus simpul dari memori
+        delete P;
         count++;
     }
-    if (count == 100)
-    {
+    if (count == 100) {
         cout << "Kapasitas harian telah penuh." << endl;
     }
-    if (!isEmpty(Q))
-    {
+    if (!isEmpty(Q)) {
         cout << "Warga yang belum terlayani diminta kembali besok." << endl;
     }
 }
 
-void reassignQueue(Queue &Q)
-{
-    // Mengatur ulang antrean dari Queue Tunggu
+void reassignQueue(Queue &Q) {
     cout << "Memindahkan warga dari Queue Tunggu ke antrean Prioritas atau Normal." << endl;
-    
+
     Queue newQueue;
     createQueue(newQueue);
 
     ElemQ *temp = head(Q);
-    while (temp != nil)
-    {
+    while (temp != nil) {
         ElemQ *P = createElemQueue(info(temp).nama, info(temp).usia, info(temp).pekerjaan, info(temp).nomor_antrean);
         P->info.prioritas = info(temp).prioritas;
         enqueue(newQueue, P);
@@ -176,18 +139,13 @@ void reassignQueue(Queue &Q)
     Q = newQueue;
 }
 
-
-void checkWaitingTime(Queue &Q, int waktu_sekarang)
-{
-    // Mengecek waktu tunggu setiap warga
+void checkWaitingTime(Queue &Q, int waktu_sekarang) {
     cout << "Mengecek waktu tunggu warga dalam antrean Q." << endl;
 
     ElemQ *temp = head(Q);
-    while (temp != nil)
-    {
+    while (temp != nil) {
         int waktu_tunggu = waktu_sekarang - info(temp).waktu_daftar;
-        if (waktu_tunggu > 120 && !info(temp).prioritas)
-        {
+        if (waktu_tunggu > 120 && !info(temp).prioritas) {
             info(temp).prioritas = true;
         }
         temp = next(temp);
@@ -195,62 +153,45 @@ void checkWaitingTime(Queue &Q, int waktu_sekarang)
     updatePriority(Q);
 }
 
-void emergencyHandle(Queue &Q, int nomor_antrean)
-{
+void emergencyHandle(Queue &Q, int nomor_antrean) {
     ElemQ *temp = head(Q);
-    while (temp != nil)
-    {
-        if (info(temp).nomor_antrean == nomor_antrean)
-        {
+    while (temp != nil) {
+        if (info(temp).nomor_antrean == nomor_antrean) {
             info(temp).kondisi_darurat = true;
             break;
         }
         temp = next(temp);
     }
-    if (temp == nil)
-    {
+    if (temp == nil) {
         cout << "Warga dengan nomor antrean " << nomor_antrean << " tidak ditemukan." << endl;
-    }
-    else
-    {
+    } else {
         updatePriority(Q);
     }
 }
 
-void updatePriority(Queue &Q)
-{
-    // Mengatur ulang antrean setiap jam
+void updatePriority(Queue &Q) {
     cout << "Mengatur ulang antrean berdasarkan prioritas dan kondisi darurat." << endl;
 
     Queue newQueue;
     createQueue(newQueue);
 
     ElemQ *temp = head(Q);
-    while (temp != nil)
-    {
+    while (temp != nil) {
         ElemQ *P = createElemQueue(info(temp).nama, info(temp).usia, info(temp).pekerjaan, info(temp).nomor_antrean);
         P->info.prioritas = info(temp).prioritas;
         P->info.kondisi_darurat = info(temp).kondisi_darurat;
 
-        if (info(P).kondisi_darurat)
-        {
+        if (info(P).kondisi_darurat) {
             next(P) = head(newQueue);
             head(newQueue) = P;
             if (tail(newQueue) == nil) tail(newQueue) = P;
-        }
-        else if (info(P).prioritas)
-        {
+        } else if (info(P).prioritas) {
             enqueue(newQueue, P);
-        }
-        else
-        {
-            if (isEmpty(newQueue))
-            {
+        } else {
+            if (isEmpty(newQueue)) {
                 head(newQueue) = P;
                 tail(newQueue) = P;
-            }
-            else
-            {
+            } else {
                 next(tail(newQueue)) = P;
                 tail(newQueue) = P;
             }
@@ -260,28 +201,21 @@ void updatePriority(Queue &Q)
     Q = newQueue;
 }
 
-ElemQ *findAndRemove(Queue &Q, int nomor_antrean)
-{
+ElemQ *findAndRemove(Queue &Q, int nomor_antrean) {
     ElemQ *P = head(Q);
-    ElemQ *prev = nullptr;
+    ElemQ *prev = nil;
 
-    while (P != nullptr)
-    {
-        if (P->info.nomor_antrean == nomor_antrean)
-        {
-            if (prev == nullptr)
-            {
+    while (P != nil) {
+        if (P->info.nomor_antrean == nomor_antrean) {
+            if (prev == nil) {
                 head(Q) = P->next;
-            }
-            else
-            {
+            } else {
                 prev->next = P->next;
             }
-            if (P == Q.tail)
-            {
+            if (P == Q.tail) {
                 Q.tail = prev;
             }
-            P->next = nullptr;
+            P->next = nil;
             return P;
         }
         prev = P;
@@ -289,5 +223,5 @@ ElemQ *findAndRemove(Queue &Q, int nomor_antrean)
     }
 
     cout << "Warga dengan nomor antrean " << nomor_antrean << " tidak ditemukan." << endl;
-    return nullptr;
+    return nil;
 }
