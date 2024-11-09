@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1730225676 source:c:\users\a8k\documents\wdev\tp-4\list.cpp
+	"list.h"
+
+1730225442 c:\users\a8k\documents\wdev\tp-4\list.h
+	<iostream>
+
+1730225510 source:c:\users\a8k\documents\wdev\tp-4\main.cpp
+	<iostream>
+	"list.h"
+
