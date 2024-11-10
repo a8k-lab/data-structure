@@ -34,7 +34,7 @@ void insertAfter(List &L, adr Prec, adr P) {
 
 void deleteFirst(List &L, adr &P) {
     P = first(L);
-    first(L) = next(p);
+    first(L) = next(P);
 }
 
 void deleteLast(List &L, adr &P) {
