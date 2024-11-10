@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1731223597 source:c:\users\a8k\documents\wdev\tp-7\main.cpp
+	"stack.h"
+
+1731221997 c:\users\a8k\documents\wdev\tp-7\stack.h
+	<iostream>
+
+1731224016 source:c:\users\a8k\documents\wdev\tp-7\stack.cpp
+	"stack.h"
+
