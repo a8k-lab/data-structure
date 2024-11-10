@@ -18,23 +18,23 @@ void insertFirst(List &L, adr P) {
 
 void insertLast(List &L, adr P) {
     adr q = first(L);
-    while (q->next != nil) {
-        q = q->next;
+    while (next(q) != nil) {
+        q = next(q);
     }
-    q->next = P;
+    next(q) = P;
 }
 
 void insertAfter(List &L, adr Prec, adr P) {
     adr q = first(L);
     while (q != Prec) {
-        q = q->next;
+        q = next(q);
     }
-    q->next = P;
+    next(q) = P;
 }
 
 void deleteFirst(List &L, adr &P) {
     P = first(L);
-    first(L) = P->next;
+    first(L) = next(p);
 }
 
 void deleteLast(List &L, adr &P) {
@@ -48,28 +48,28 @@ void deleteLast(List &L, adr &P) {
         return;
     }
     adr q = first(L);
-    while (q->next->next != nil) {
-        q = q->next;
+    while (next(q)->next != nil) {
+        q = next(q);
     }
-    P = q->next;
-    q->next = nil;
+    P = next(q);
+    next(q) = nil;
 }
 
 void deleteAfter(List &L, adr Prec, adr &P) {
     adr q = first(L);
     while (q != Prec) {
-        q = q->next;
+        q = next(q);
     }
-    P = q->next;
-    q->next = nil;
+    P = next(q);
+    next(q) = nil;
 }
 
 void show(List L) {
     adr p = first(L);
     if (p != nil) {
-        while (p->next != nil) {
+        while (next(p) != nil) {
         cout << info(p) << ", ";
-        p = p->next;
+        p = next(p);
         }
         cout << info(p);
     }
@@ -82,7 +82,7 @@ adr findInfo(List L, infotype x) {
         if (info(p) == x) {
             return p;
         }
-        p = p->next;
+        p = next(p);
     }
     return nil;
 }

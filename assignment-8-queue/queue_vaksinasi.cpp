@@ -92,7 +92,7 @@ void printInfo(Queue Q) {
                 << "Pekerjaan: " << P->info.pekerjaan << endl
                 << "Prioritas: " << (P->info.prioritas ? "Ya" : "Tidak") << endl
                 << "Nomor Antrean: " << P->info.nomor_antrean << endl;
-            P = P->next;
+            P = next(P);
             cout << "----------------------------" << endl;
         }
     }
@@ -208,18 +208,18 @@ ElemQ *findAndRemove(Queue &Q, int nomor_antrean) {
     while (P != nil) {
         if (P->info.nomor_antrean == nomor_antrean) {
             if (prev == nil) {
-                head(Q) = P->next;
+                head(Q) = next(P);
             } else {
-                prev->next = P->next;
+                prev->next = next(P);
             }
             if (P == Q.tail) {
                 Q.tail = prev;
             }
-            P->next = nil;
+            next(P) = nil;
             return P;
         }
         prev = P;
-        P = P->next;
+        P = next(P);
     }
 
     cout << "Warga dengan nomor antrean " << nomor_antrean << " tidak ditemukan." << endl;

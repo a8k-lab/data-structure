@@ -18,18 +18,18 @@ void insertFirst(List &L, adr P) {
 
 void insertLast(List &L, adr P) {
     adr q = first(L);
-    while (q->next != nil) {
-        q = q->next;
+    while (next(q) != nil) {
+        q = next(q);
     }
-    q->next = P;
+    next(q) = P;
 }
 
 void show(List L) {
     adr p = first(L);
     if (p != nil) {
-        while (p->next != nil) {
+        while (next(p) != nil) {
         cout << info(p) << ", ";
-        p = p->next;
+        p = next(p);
         }
         cout << info(p);
     }
@@ -41,11 +41,11 @@ adr findMin(List L) {
     // Dengan asumsi list tidak kosong, fungsi mengembalikan data terkec dari list.
     adr p = first(L);
     adr min = p;
-    while (p->next != nil) {
+    while (next(p) != nil) {
         if (info(p) < info(min)) {
             min = p;
         }
-        p = p->next;
+        p = next(p);
     }
     return min;
 }
