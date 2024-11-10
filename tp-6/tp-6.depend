@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1731197931 source:c:\users\a8k\documents\wdev\tp-6\dll.cpp
+	"DLL.h"
+
+1731195683 c:\users\a8k\documents\wdev\tp-6\dll.h
+	<iostream>
+
+1731197825 source:c:\users\a8k\documents\wdev\tp-6\main.cpp
+	"DLL.h"
+
