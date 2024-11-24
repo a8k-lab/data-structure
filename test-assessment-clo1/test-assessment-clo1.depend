@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1732470868 source:c:\users\a8k\documents\wdev\test-assessment-clo1\main.cpp
+	<iostream>
+	"driver.h"
+
+1732470755 c:\users\a8k\documents\wdev\test-assessment-clo1\driver.h
+	<iostream>
+
+1732470121 source:c:\users\a8k\documents\wdev\test-assessment-clo1\driver.cpp
+	"driver.h"
+
