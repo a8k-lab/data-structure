@@ -38,6 +38,12 @@ void deleteLast(List &L, address &elm) {
 
 void showList(List L) {
     address elm = first(L);
+
+    if (elm == nil) {
+        cout << "List kosong" << endl;
+        return;
+    }
+
     int number = 1;
     cout << "List dari driver: " << endl;
     while (elm != nil) {
@@ -55,12 +61,12 @@ void resetList(List &L) {
         deleteLast(L, elm);
         elm = last(L);
     }
-    cout << endl;
+    cout << "Reset selesai" << endl;
 }
 
 void splitList(List &L, List &A, List &B, int N) {
     address elm = first(L);
-    while (elm != nil) {
+    while (first(L) != nil) {
         if (info(elm).rating < N) {
             insertLast(A, elm);
             deleteLast(L, elm);
@@ -68,6 +74,5 @@ void splitList(List &L, List &A, List &B, int N) {
             insertLast(B, elm);
             deleteLast(L, elm);
         }
-        elm = first(L);
     }
 }

@@ -29,9 +29,8 @@ int main() {
     showList(drivers);
 
     // 5. Mengeluarkan data dari struktur data satu persatu. Setiap kali data di keluarkan, info data tersebut ditampilkan ke layar. Setelah itu Struktur Data menjadi empty, dan di layar tampil rata-rata rating. 
-    cout << "Sebelum reset" << endl;
+    cout << "Reset data" << endl;
     resetList(drivers);
-    cout << "Selesai reset" << endl;
 
     // 6. Menambah 4 data baru lagi secara sekaligus (wajib menggunakan Looping)
     for (int i = 1; i <= 4; i++) {
@@ -53,10 +52,15 @@ int main() {
 
     // 9. Melakukan split sesuai value N dari user
     List A, B;
+    createList(A);
+    createList(B);
     splitList(drivers, A, B, inputN);
 
     // 10. Tampilkan isi data pada masing-masing struktur data yang baru hasil dari proses split.
+    cout << "Kurang dari N" << endl;
     showList(A);
+
+    cout << "Lebih dari N" << endl;
     showList(B);
 
     return 0;
