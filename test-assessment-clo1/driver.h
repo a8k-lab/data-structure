@@ -41,7 +41,7 @@ void showList(List L);
 
 void resetList(List &L);
 
-void splitList(List &L, List &LessThanN, List &GreaterThanN, int N);
+void splitList(List &L, List &LessThanN, List &GreaterThanN, float N);
 
 #endif // DRIVER_H_INCLUDED
 

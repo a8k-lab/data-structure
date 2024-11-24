@@ -64,7 +64,7 @@ void resetList(List &L) {
     cout << "Reset selesai" << endl;
 }
 
-void splitList(List &L, List &A, List &B, int N) {
+void splitList(List &L, List &A, List &B, float N) {
     address elm = first(L);
     while (first(L) != nil) {
         if (info(elm).rating < N) {
