@@ -28,7 +28,7 @@ void addVertex_103042310065(graph &G, char newVertexID) {
 void buildGraph_103042310065(graph &G) {
     char newVertexID;
     adrVertex newVertex;
-    cout << "Masukkan ID vertex/simpul baru:" << endl;
+    cout << "Masukkan ID vertex/simpul (A-Z/a-z):" << endl;
     while (cin >> newVertexID) {
         if (
             (newVertexID >= 'A' && newVertexID <= 'Z')
