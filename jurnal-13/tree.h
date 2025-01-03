@@ -11,9 +11,9 @@ using std::endl;
 #define nil NULL
 
 typedef int infotype;
-typedef struct Node* adrNode;
+typedef struct node* adrNode;
 
-struct Node {
+struct node {
     infotype info;
     adrNode left;
     adrNode right;
@@ -67,24 +67,57 @@ int countLeaves_103042310065(adrNode root);
  */
 int heightTree_103042310065(adrNode root);
 
+/**
+ * I.S. terdefinisi root dari BST (mungkin NULL).
+ * F.S. menampilkan node dari BST secara InOrder atau dengan urutan left, root dan right.
+ */
 void printInOrder_103042310065(adrNode root);
 
+/**
+ * I.S. terdefinisi root dari BST (mungkin NULL).
+ * F.S. menampilkan node dari BST secara PostOrder atau dengan urutan left, right dan root.
+ */
 void printPostOrder_103042310065(adrNode root);
 
+/**
+ * I.S. terdefinisi suatu root dari BST (mungkin NULL).
+ * F.S. menampilkan node paling kiri dari BST.
+ * Catatan: implementasikan secara REKURSIF.
+ */
 void printLeftMostNode_103042310065(adrNode root);
 
+/**
+ * I.S. terdefinisi suatu root dari BST (mungkin NULL).
+ * F.S. menampilkan node paling kanan dari BST.
+ * Catatan: implementasikan secara REKURSIF.
+ */
 void printRightMostNode_103042310065(adrNode root);
 
+/**
+ * mengembalikan banyaknya node yang terdapat pada BST, Catatan: implementasikan secara REKURSIF.
+ */
 int countNode_103042310065(adrNode root);
 
+/**
+ * I.S. terdefinisi suatu root dari BST (mungkin NULL), dan infotype x.
+ * F.S. menampilkan ancestor atau leluhur dari node dengan info x, tampilkan dari node ke atas menuju root.
+ * Catatan: implementasikan secara REKURSIF.
+ */
 void printAncestor_103042310065(adrNode root, infotype x);
 
+/**
+ *  mengembalikan banyaknya node selain root yang minimal memiliki satu anak dari BST.
+ */
 int countInternalNode_103042310065(adrNode root);
 
+/**
+ * mengembalikan banyaknya edge dari suatu root menuju suatu node n. Catatan: implementasikan secara REKURSIF.
+ */
 int depthNode_103042310065(adrNode root, infotype n);
 
+/**
+ * mengembalikan 1 + kedalaman dari suatu node n dari root.
+ */
 int levelNode_103042310065(adrNode root, infotype n);
-
-bool isComplete(adrNode root);
 
 #endif // TREE_H_INCLUDED

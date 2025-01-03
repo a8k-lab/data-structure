@@ -1,7 +1,7 @@
 #include "tree.h"
 
 adrNode newNode_103042310065(infotype x) {
-    adrNode newNode = new Node();
+    adrNode newNode = new node();
     info(newNode) = x;
     left(newNode) = nil;
     right(newNode) = nil;
@@ -169,11 +169,4 @@ int levelNode_103042310065(adrNode root, infotype n) {
         return leftLevel + 1;
     }
     return rightLevel + 1;
-}
-
-bool isComplete(adrNode root) {
-    if (root == nil) {
-        return true;
-    }
-    return isComplete(left(root)) && isComplete(right(root));
 }
